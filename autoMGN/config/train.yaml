@@ -1,0 +1,26 @@
+
+seed: 0
+
+dataset:
+  root: 'data/CarModel'
+
+model:
+  # network
+  latent_size: 64
+  num_layers: 2
+  message_passing_steps: 8
+
+  # input/output
+  node_feat_size: 3     # load
+  edge_feat_size: 4     # 3D coord world pos + length
+  output_feat_size: 1   # mises
+
+batch_size: 1
+last_epoch: -1
+max_epoch: 10000
+lr: 0.0001
+decayRate: 0.9999995394830874
+eval_steps: 50
+save_steps: 100
+log_root: 'log'
+ckpt_root: 'ckpt'
