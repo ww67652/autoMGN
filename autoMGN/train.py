@@ -117,6 +117,7 @@ def train(model, train_dataloader, valid_dataloader, criterion, optimizer, sched
 
 
 if __name__ == '__main__':
+
     warnings.filterwarnings("ignore", message="The NumPy module was reloaded")
 
     config = load_train_config()
