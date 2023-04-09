@@ -7,13 +7,15 @@ import torch
 import torch.nn as nn
 import torch.optim as optim
 import torch.utils.data as data
-from tools.dataset import Dataset
+from tools.dataset2 import Dataset
 from tools.common import Accumulator
 from model.MGN import MGN
 from config.config import load_train_config
 
+import warnings
 
-os.environ['CUDA_VISIBLE_DEVICES'] = '1'
+
+os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
 
 def accumulate(model, dataloader, config):
@@ -115,6 +117,8 @@ def train(model, train_dataloader, valid_dataloader, criterion, optimizer, sched
 
 
 if __name__ == '__main__':
+    warnings.filterwarnings("ignore", message="The NumPy module was reloaded")
+
     config = load_train_config()
     random.seed(config['seed'])
 

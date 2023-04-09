@@ -13,7 +13,12 @@ class Accumulator:
         self.sum_squared_reduce = None
 
     def accumulate(self, data):
-        b, n, _ = data.shape
+
+        if data.dim() >= 3:
+            b, n, _ = data.shape
+        else:
+            b = 1
+            n = 1
         data = data.reshape((b * n, -1))
         sum = torch.sum(data, dim=0)
         sum_squared = torch.sum(data ** 2, dim=0)
@@ -34,8 +39,13 @@ class Accumulator:
 
 def unpack_filename(path):
     # search = re.search(r'.*mises_(\S+)_(\S+)_([0-9]+).npy', path)
-    search = re.search(r'.*mises_(\S+)_([0-9]+).npy', path)
+    # search = re.search(r'.*mises_(\S+)_([0-9]+).npy', path)
+    search = re.search(r'.*Model([0-9]+).npz', path)
     if search is None:
         return '0', 0
-    return search.group(1), int(search.group(2))
+    return search.group(0), int(search.group(1))
     #return search.group(1), search.group(2), int(search.group(3))  # shape_id, loads_id, load_index
+#
+# if __name__ == '__main__':
+#     search = re.search(r'.*Model([0-9]+).npz', "./data/CarModel/Model152.npz")
+#     print("ww: ", search)
