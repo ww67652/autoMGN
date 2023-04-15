@@ -6,9 +6,9 @@ dataset:
 
 model:
   # network
-  latent_size: 64
+  latent_size: 32
   num_layers: 2
-  message_passing_steps: 8
+  message_passing_steps: 5
 
   # input/output
   node_feat_size: 3     # load
@@ -20,7 +20,7 @@ last_epoch: -1
 max_epoch: 50
 lr: 0.0001
 decayRate: 0.9999995394830874
-eval_steps: 50
+eval_steps: 10
 save_steps: 100
 log_root: 'log'
 ckpt_root: 'ckpt'

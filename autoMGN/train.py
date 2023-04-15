@@ -128,34 +128,32 @@ def train(model, train_dataloader, valid_dataloader, criterion, optimizer, sched
             torch.save(copy.deepcopy((model.state_dict())), os.path.join(config['ckpt_root'], '%d.pkl' % epoch))
 
     # Plot the train loss curve
-    plt.ylim([0, 1])
-    plt.plot(range(0, config['max_epoch'] + 1), train_losses)
-    plt.title('Train Loss Curve')
-    plt.xlabel('Epoch')
-    plt.ylabel('Loss')
-    plt.savefig(os.path.join(config['log_root'], 'train_loss_curve.png'))
+    # plt.ylim([0, 1])
+    # plt.plot(range(0, config['max_epoch'] + 1), train_losses)
+    # plt.title('Train Loss Curve')
+    # plt.xlabel('Epoch')
+    # plt.ylabel('Loss')
+    # plt.savefig(os.path.join(config['log_root'], 'train_loss_curve.png'))
 
-    # 创建画布和两个坐标轴对象
-    # fig, ax1 = plt.subplots()
-    # ax2 = ax1.twinx()
-    #
-    # # 绘制第一条曲线，并设置纵坐标轴范围和颜色
-    # ax1.plot(range(0, config['max_epoch'] + 1), train_losses, color='blue')
-    # ax1.set_ylim([0, 1])
-    # ax1.set_ylabel('lose', color='blue')
-    #
-    # # 绘制第二条曲线，并设置纵坐标轴范围和颜色
-    # ax2.plot(range(0, config['max_epoch'] + 1), train_mses, color='red')
-    # ax2.set_ylim([0, 0.002])
-    # ax2.set_ylabel('mse', color='red')
-    #
-    # # 设置横坐标轴标签和标题
-    # ax1.set_xlabel('Epoch')
-    # plt.title('Loss & MSE for training model')
-    #
-    # # 显示图形
-    # # plt.show()
-    # plt.savefig(os.path.join(config['log_root'], 'Loss&MSE.png'))
+    # 创建画布和坐标轴对象
+    fig, ax = plt.subplots()
+
+    # 绘制两条曲线，并设置纵坐标轴范围和颜色
+    ax.plot(range(0, config['max_epoch'] + 1), train_losses, color='blue', label='train_loss')
+    ax.plot(range(0, config['max_epoch'] + 1, config['eval_steps']), train_losses, color='blue', label='valid_loss')
+
+    ax.set_xlim(0, config['max_epoch'])
+    ax.set_ylim([0, 1])
+
+    ax.legend()
+
+    # 设置横坐标轴标签和标题
+    ax.set_xlabel('Epoch')
+    plt.title('train & valid_loss_curve ')
+
+    # 显示图形
+    # plt.show()
+    plt.savefig(os.path.join(config['log_root'], 'train & valid_loss_curve.png'))
 
     return
 
