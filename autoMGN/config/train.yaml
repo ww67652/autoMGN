@@ -2,22 +2,22 @@
 seed: 0
 
 dataset:
-  root: 'data/CarModel'
+  root: 'data/CarModel/test'
 
 model:
   # network
-  latent_size: 32
+  latent_size: 8
   num_layers: 2
-  message_passing_steps: 5
+  message_passing_steps: 2
 
   # input/output
   node_feat_size: 3     # load
-  edge_feat_size: 4     # 3D coord world pos + length
+  edge_feat_size: 5     # 3D coord world pos + length + wind
   output_feat_size: 1   # mises
 
 batch_size: 1
 last_epoch: -1
-max_epoch: 50
+max_epoch: 100
 lr: 0.0001
 decayRate: 0.9999995394830874
 eval_steps: 10

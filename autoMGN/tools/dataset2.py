@@ -78,6 +78,7 @@ class Dataset(data.Dataset):
         car_model = np.load(path, allow_pickle=True)
         connections = car_model['connections']
         positions = car_model['positions']
+        winds = car_model['winds'].reshape(-1, 1)
 
         senders = connections[:, 0]
         receivers = connections[:, 1]
@@ -86,7 +87,10 @@ class Dataset(data.Dataset):
         # 点特征
         nodes = positions
         # 边特征
-        edges = np.concatenate((relative_pos, edge_len), axis=1)
+        # print("relative_pos:", relative_pos.shape)
+        # print("edge_len:", edge_len.shape)
+        # print("winds:", winds.shape)
+        edges = np.concatenate((relative_pos, edge_len, winds), axis=1)
 
         senders = torch.from_numpy(senders).long()
         receivers = torch.from_numpy(receivers).long()

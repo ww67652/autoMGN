@@ -1,8 +1,8 @@
 import torch
 from torch import nn
-from torch_scatter import scatter_add
+from torch_scatter import scatter_mean, scatter_add
 import random
-
+from collections import defaultdict
 
 class MLP(nn.Module):
     """
@@ -55,36 +55,37 @@ class GraphNetBlock(nn.Module):
         self.mlp_edge = MLP(input_dim=3 * hidden_dim, hidden_dim=hidden_dim, output_dim=hidden_dim,
                             num_layers=num_layers)  # 3*hidden_dim: [sender, edge, receiver]
 
+    def neighborhood_aggregate(node_features, neighbors, edge_features):
+        aggregated_edge_features = scatter_add(edge_features, neighbors, dim=0)
+        num_neighbors = neighbors.bincount(minlength=node_features.shape[0]).unsqueeze(-1)
+        aggregated_edge_features /= num_neighbors.clamp(min=1)  # avoid division by zero
+        return torch.cat([node_features, aggregated_edge_features], dim=-1)
+
     def update_edges(self, senders, receivers, node_features, edge_features, node_sample=10):
         senders = senders.unsqueeze(2).expand(-1, -1, self.hidden_dim)
         receivers = receivers.unsqueeze(2).expand(-1, -1, self.hidden_dim)
         sender_features = torch.gather(node_features, dim=1, index=senders)
         receiver_features = torch.gather(receivers, dim=1, index=senders)
-        _sample = random.sample
-        sender_features = [_sample(sender_features,
-                                    node_sample,
-                                    ) if len(sender_feature) >= node_sample else sender_feature for sender_feature in
-                            sender_features]
-        receiver_features = [_sample(receiver_features,
-                                    node_sample,
-                                    ) if len(receiver_feature) >= node_sample else receiver_feature for receiver_feature in
-                            receiver_features]
-
         features = torch.cat([sender_features, receiver_features, edge_features], dim=-1)
 
         return self.mlp_edge(features)
 
-    def update_nodes(self, receivers, node_features, edge_features, edge_sample=10):
+    def update_nodes(self, receivers, node_features, edge_features, node_sample=10):
         accumulate_edges = scatter_add(edge_features, receivers, dim=1)  # ~ tf.math.unsorted_segment_sum
-
-        if not edge_sample is None:
-            _sample = random.sample
-            accumulate_edges = [_sample(accumulate_edges,
-                            edge_sample,
-                            ) if len(accumulate_edge) >= edge_sample else accumulate_edge for accumulate_edge in accumulate_edges]
-
         features = torch.cat([node_features, accumulate_edges], dim=-1)
         return self.mlp_node(features)
+
+    # def update_nodes(self, receivers, node_features, edge_features):
+    #     neighbors = self._sample_neighbors(receivers, self.node_sample)  # 获取邻居节点
+    #     return self.mlp_node(self.neighborhood_aggregate(node_features, neighbors, edge_features))
+    #
+    # def update_edges(self, senders, receivers, node_features, edge_features):
+    #     sender_features = torch.index_select(node_features, 0, senders)
+    #     receiver_features = torch.index_select(node_features, 0, receivers)
+    #     neighbors = self._sample_neighbors(torch.cat([senders, receivers]), self.edge_sample)  # 获取邻居节点
+    #     aggregated_edge_features = self.neighborhood_aggregate(edge_features, neighbors, edge_features)
+    #     features = torch.cat([sender_features, aggregated_edge_features, receiver_features], dim=-1)
+    #     return self.mlp_edge(features)
 
     def forward(self, senders, receivers, node_features, edge_features):
         new_edge_features = self.update_edges(senders, receivers, node_features, edge_features)
