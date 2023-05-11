@@ -78,7 +78,11 @@ class Dataset(data.Dataset):
         car_model = np.load(path, allow_pickle=True)
         connections = car_model['connections']
         positions = car_model['positions']
+        # print("positions: ", len(positions))
+        # print("positions: ", positions.shape)
+        # print("connections: ", len(connections))
         winds = car_model['winds'].reshape(-1, 1)
+        # print("winds: ",len(winds))
 
         senders = connections[:, 0]
         receivers = connections[:, 1]
@@ -92,13 +96,21 @@ class Dataset(data.Dataset):
         # print("winds:", winds.shape)
         edges = np.concatenate((relative_pos, edge_len, winds), axis=1)
 
+        adj_list = {}
+        # for i, receiver in enumerate(receivers):
+        #     if receiver not in adj_list:
+        #         adj_list[receiver] = []
+        #     adj_list[receiver].append(senders[i])
+        #
+        # print("adj_list: ", len(adj_list))
+
         senders = torch.from_numpy(senders).long()
         receivers = torch.from_numpy(receivers).long()
         nodes = torch.from_numpy(nodes).float()
         edges = torch.from_numpy(edges).float()
         target = torch.from_numpy(target).float()
 
-        return senders, receivers, nodes, edges, target, path
+        return senders, receivers, nodes, edges, target, adj_list, path,
     def __len__(self):
         return len(self.paths)
 

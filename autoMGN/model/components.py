@@ -3,6 +3,7 @@ from torch import nn
 from torch_scatter import scatter_mean, scatter_add
 import random
 from collections import defaultdict
+from torch_geometric.nn import SAGEConv
 
 class MLP(nn.Module):
     """
@@ -61,35 +62,47 @@ class GraphNetBlock(nn.Module):
         aggregated_edge_features /= num_neighbors.clamp(min=1)  # avoid division by zero
         return torch.cat([node_features, aggregated_edge_features], dim=-1)
 
-    def update_edges(self, senders, receivers, node_features, edge_features, node_sample=10):
+    def update_edges(self, senders, receivers, node_features, edge_features):
         senders = senders.unsqueeze(2).expand(-1, -1, self.hidden_dim)
         receivers = receivers.unsqueeze(2).expand(-1, -1, self.hidden_dim)
         sender_features = torch.gather(node_features, dim=1, index=senders)
-        receiver_features = torch.gather(receivers, dim=1, index=senders)
+        receiver_features = torch.gather(receivers, dim=1, index=receivers)
         features = torch.cat([sender_features, receiver_features, edge_features], dim=-1)
 
         return self.mlp_edge(features)
 
-    def update_nodes(self, receivers, node_features, edge_features, node_sample=10):
+    # def update_nodes(self, receivers, node_features, edge_features, adj_list, node_sample=5):
+    #     # 对每个节点进行邻居采样，确保采样的邻居数量不超过node_sample个
+    #     sample_adj_list = {}
+    #     for node in adj_list:
+    #         adj_nodes = adj_list[node]
+    #         if len(adj_nodes) > node_sample:
+    #             adj_nodes = random.sample(adj_nodes, node_sample)
+    #         sample_adj_list[node] = adj_nodes
+    #
+    #     # 根据采样后的邻接表重新构造edge_features
+    #     sample_edge_features = []
+    #     for receiver in receivers:
+    #         adj_nodes = sample_adj_list[receiver.item()]
+    #         for adj_node in adj_nodes:
+    #             edge_index = adj_list[receiver.item()].index(adj_node)
+    #             sample_edge_features.append(edge_features[edge_index])
+    #     sample_edge_features = torch.stack(sample_edge_features)
+    #
+    #     # 聚合采样后的邻居节点特征
+    #     accumulate_edges = scatter_add(sample_edge_features, receivers, dim=1)
+    #     features = torch.cat([node_features, accumulate_edges], dim=-1)
+    #
+    #     return self.mlp_node(features)
+
+    def update_nodes(self, receivers, node_features, edge_features, adj_list, node_sample=10):
         accumulate_edges = scatter_add(edge_features, receivers, dim=1)  # ~ tf.math.unsorted_segment_sum
         features = torch.cat([node_features, accumulate_edges], dim=-1)
         return self.mlp_node(features)
 
-    # def update_nodes(self, receivers, node_features, edge_features):
-    #     neighbors = self._sample_neighbors(receivers, self.node_sample)  # 获取邻居节点
-    #     return self.mlp_node(self.neighborhood_aggregate(node_features, neighbors, edge_features))
-    #
-    # def update_edges(self, senders, receivers, node_features, edge_features):
-    #     sender_features = torch.index_select(node_features, 0, senders)
-    #     receiver_features = torch.index_select(node_features, 0, receivers)
-    #     neighbors = self._sample_neighbors(torch.cat([senders, receivers]), self.edge_sample)  # 获取邻居节点
-    #     aggregated_edge_features = self.neighborhood_aggregate(edge_features, neighbors, edge_features)
-    #     features = torch.cat([sender_features, aggregated_edge_features, receiver_features], dim=-1)
-    #     return self.mlp_edge(features)
-
-    def forward(self, senders, receivers, node_features, edge_features):
+    def forward(self, senders, receivers, node_features, edge_features, adj_list):
         new_edge_features = self.update_edges(senders, receivers, node_features, edge_features)
-        new_node_features = self.update_nodes(receivers, node_features, new_edge_features)
+        new_node_features = self.update_nodes(receivers, node_features, new_edge_features, adj_list)
 
         new_node_features += node_features
         new_edge_features += edge_features
@@ -120,9 +133,9 @@ class Process(nn.Module):
         for i in range(message_passing_steps):
             self.blocks.append(GraphNetBlock(hidden_dim, num_layers))
 
-    def forward(self, senders, receivers, node_features, edge_features):
+    def forward(self, senders, receivers, node_features, edge_features, adj_list):
         for graphnetblock in self.blocks:
-            node_features, edge_features = graphnetblock(senders, receivers, node_features, edge_features)
+            node_features, edge_features = graphnetblock(senders, receivers, node_features, edge_features, adj_list)
 
         return node_features, edge_features
 
@@ -154,10 +167,11 @@ class EncodeProcessDecode(nn.Module):
         self.process = Process(hidden_dim, num_layers, message_passing_steps)
         self.decoder = Decoder(hidden_dim, output_dim, num_layers)
 
-    def forward(self, senders, receivers, node_features, edge_features):
+    def forward(self, senders, receivers, node_features, edge_features, adj_list):
         node_features, edge_features = self.encoder(node_features, edge_features)
-        node_features, edge_features = self.process(senders, receivers, node_features, edge_features)
+        node_features, edge_features = self.process(senders, receivers, node_features, edge_features, adj_list)
         predict = self.decoder(node_features)
+        # predict_mean = torch.mean(predict, dim=1, keepdim=True)
         return predict
 
 

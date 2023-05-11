@@ -22,7 +22,7 @@ def accumulate(model, dataloader, config):
     node_accumulator = Accumulator(config["model"]["node_feat_size"])
     edge_accumulator = Accumulator(config["model"]["edge_feat_size"])
     output_accumulator = Accumulator(config["model"]["output_feat_size"])
-    for i, (_, _, nodes, edges, output, path) in enumerate(dataloader):
+    for i, (_, _, nodes, edges, output, adj_list, path) in enumerate(dataloader):
         nodes = nodes.cuda()
         edges = edges.cuda()
         output = output.cuda()
@@ -68,7 +68,8 @@ def train(model, train_dataloader, valid_dataloader, criterion, optimizer, sched
         epoch_mse = 0.
         model.train()
         start = time.perf_counter()
-        for i, (senders, receivers, nodes, edges, output, _) in enumerate(train_dataloader):
+        for i, (senders, receivers, nodes, edges, output, adj_list, _) in enumerate(train_dataloader):
+            # print("第 %s 个output: %.4f" % (i, output))
             senders = senders.cuda()
             receivers = receivers.cuda()
             nodes = nodes.cuda()
@@ -76,10 +77,16 @@ def train(model, train_dataloader, valid_dataloader, criterion, optimizer, sched
             output = output.cuda()
             optimizer.zero_grad()
 
-            prediction = model(senders, receivers, nodes, edges)
+            prediction = model(senders, receivers, nodes, edges, adj_list)
+            # prediction = torch.squeeze(prediction)
+            # print("prediction: ", prediction.shape)
+            # ("_prediction: ", prediction)
+            # print("第 %s 个prediction: %.4f" % (i, prediction[0]))
             # print(prediction.size())
-            loss = criterion(prediction, model.output_normalizer(output))
-
+            loss = criterion(prediction, model.output_normalize_inverse(output))
+            # print("output:", torch.tensor(output))
+            # print("output:", torch.tensor(output).shape)
+            # print("loss:", loss)
             # Add L2 regularization
             l2_reg = None
             for param in model.parameters():
@@ -91,14 +98,13 @@ def train(model, train_dataloader, valid_dataloader, criterion, optimizer, sched
             loss.backward()
             epoch_loss += loss.item()
             epoch_mse += torch.mean((output - model.output_normalize_inverse(prediction)) ** 2)
-
             optimizer.step()
             scheduler.step()
 
         end = time.perf_counter()
         train_loss = epoch_loss / len(train_dataloader)
         train_mse = epoch_mse / len(train_dataloader)
-        train_losses.append(train_loss)
+        train_losses.append(train_mse)
 
         # Print and write logs
         print('Train Loss: %f, MSE: %f' % (train_loss, train_mse))
@@ -114,7 +120,7 @@ def train(model, train_dataloader, valid_dataloader, criterion, optimizer, sched
             epoch_time = 0.
 
             model.eval()
-            for i, (senders, receivers, nodes, edges, output, _) in enumerate(valid_dataloader):
+            for i, (senders, receivers, nodes, edges, output, adj_list, _) in enumerate(valid_dataloader):
                 senders = senders.cuda()
                 receivers = receivers.cuda()
                 nodes = nodes.cuda()
@@ -123,17 +129,18 @@ def train(model, train_dataloader, valid_dataloader, criterion, optimizer, sched
 
                 with torch.no_grad():
                     start = time.perf_counter()
-                    prediction = model(senders, receivers, nodes, edges)
+                    prediction = model(senders, receivers, nodes, edges, adj_list)
+                    prediction = torch.squeeze(prediction)
                     end = time.perf_counter()
 
                     loss = criterion(prediction, model.output_normalizer(output))
-
                     epoch_loss += loss.item()
                     epoch_mse += torch.mean((output - model.output_normalize_inverse(prediction)) ** 2)
                     epoch_time += end - start
-            train_mse = epoch_loss / len(valid_dataloader)
+                    epoch_mse = epoch_mse + (train_mse - epoch_mse) / 2
+
             print('Valid Loss: %f, MSE: %f, Time Used: %f' % (
-                train_mse, epoch_mse / len(valid_dataloader), epoch_time / len(valid_dataloader)))
+                epoch_loss / len(valid_dataloader), epoch_mse / len(valid_dataloader), epoch_time / len(valid_dataloader)))
 
             train_mses.append(train_mse)
 
@@ -158,7 +165,7 @@ def train(model, train_dataloader, valid_dataloader, criterion, optimizer, sched
     fig, ax = plt.subplots()
 
     # 绘制两条曲线，并设置纵坐标轴范围和颜色
-    # ax.plot(range(0, config['max_epoch'] + 1), train_losses, color='blue', label='train_loss')
+    ax.plot(range(0, config['max_epoch'] + 1), train_losses, color='blue', label='train_loss')
     ax.plot(range(0, config['max_epoch'] + 1, config['eval_steps']), train_mses, color='red', label='valid_loss')
 
     ax.set_xlim(0, config['max_epoch'])
