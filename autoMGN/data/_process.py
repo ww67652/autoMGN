@@ -36,6 +36,7 @@ for filename in os.listdir():
 
     connections = np.array(np.where(node2node)).T
 
+
     # Create a dictionary to cache the element normals and areas for each node
     node_to_elements = defaultdict(list)
     for i, elem in enumerate(elemNodeTags):

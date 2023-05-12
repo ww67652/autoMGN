@@ -3,7 +3,7 @@ import random
 import numpy as np
 import torch
 import torch.utils.data as data
-from .common import unpack_filename
+from collections import defaultdict
 
 
 class Dataset(data.Dataset):
@@ -96,13 +96,12 @@ class Dataset(data.Dataset):
         # print("winds:", winds.shape)
         edges = np.concatenate((relative_pos, edge_len, winds), axis=1)
 
-        adj_list = {}
-        # for i, receiver in enumerate(receivers):
-        #     if receiver not in adj_list:
-        #         adj_list[receiver] = []
-        #     adj_list[receiver].append(senders[i])
-        #
-        # print("adj_list: ", len(adj_list))
+        print("nodes: ", len(nodes))
+        adj_list = defaultdict(list)
+        for i, connection in enumerate(connections):
+            adj_list[connection[1]].append(connection[0])
+
+        print("adj_list: ", len(adj_list))
 
         senders = torch.from_numpy(senders).long()
         receivers = torch.from_numpy(receivers).long()
@@ -110,7 +109,7 @@ class Dataset(data.Dataset):
         edges = torch.from_numpy(edges).float()
         target = torch.from_numpy(target).float()
 
-        return senders, receivers, nodes, edges, target, adj_list, path,
+        return senders, receivers, nodes, edges, target, adj_list, path
     def __len__(self):
         return len(self.paths)
 

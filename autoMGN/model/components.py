@@ -71,34 +71,34 @@ class GraphNetBlock(nn.Module):
 
         return self.mlp_edge(features)
 
-    # def update_nodes(self, receivers, node_features, edge_features, adj_list, node_sample=5):
-    #     # 对每个节点进行邻居采样，确保采样的邻居数量不超过node_sample个
-    #     sample_adj_list = {}
-    #     for node in adj_list:
-    #         adj_nodes = adj_list[node]
-    #         if len(adj_nodes) > node_sample:
-    #             adj_nodes = random.sample(adj_nodes, node_sample)
-    #         sample_adj_list[node] = adj_nodes
-    #
-    #     # 根据采样后的邻接表重新构造edge_features
-    #     sample_edge_features = []
-    #     for receiver in receivers:
-    #         adj_nodes = sample_adj_list[receiver.item()]
-    #         for adj_node in adj_nodes:
-    #             edge_index = adj_list[receiver.item()].index(adj_node)
-    #             sample_edge_features.append(edge_features[edge_index])
-    #     sample_edge_features = torch.stack(sample_edge_features)
-    #
-    #     # 聚合采样后的邻居节点特征
-    #     accumulate_edges = scatter_add(sample_edge_features, receivers, dim=1)
-    #     features = torch.cat([node_features, accumulate_edges], dim=-1)
-    #
-    #     return self.mlp_node(features)
+    def update_nodes(self, receivers, node_features, edge_features, adj_list, node_sample=5):
+        # 对每个节点进行邻居采样，确保采样的邻居数量不超过node_sample个
+        sample_adj_list = {}
+        for node in adj_list:
+            adj_nodes = adj_list[node]
+            if len(adj_nodes) > node_sample:
+                adj_nodes = random.sample(adj_nodes, node_sample)
+            sample_adj_list[node] = adj_nodes
 
-    def update_nodes(self, receivers, node_features, edge_features, adj_list, node_sample=10):
-        accumulate_edges = scatter_add(edge_features, receivers, dim=1)  # ~ tf.math.unsorted_segment_sum
+        # 根据采样后的邻接表重新构造edge_features
+        sample_edge_features = []
+        for receiver in receivers:
+            adj_nodes = sample_adj_list[receiver.item()]
+            for adj_node in adj_nodes:
+                edge_index = adj_list[receiver.item()].index(adj_node)
+                sample_edge_features.append(edge_features[edge_index])
+        sample_edge_features = torch.stack(sample_edge_features)
+
+        # 聚合采样后的邻居节点特征
+        accumulate_edges = scatter_add(sample_edge_features, receivers, dim=1)
         features = torch.cat([node_features, accumulate_edges], dim=-1)
+
         return self.mlp_node(features)
+
+    # def update_nodes(self, receivers, node_features, edge_features, adj_list, node_sample=10):
+    #     accumulate_edges = scatter_add(edge_features, receivers, dim=1)  # ~ tf.math.unsorted_segment_sum
+    #     features = torch.cat([node_features, accumulate_edges], dim=-1)
+    #     return self.mlp_node(features)
 
     def forward(self, senders, receivers, node_features, edge_features, adj_list):
         new_edge_features = self.update_edges(senders, receivers, node_features, edge_features)
