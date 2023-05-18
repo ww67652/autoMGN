@@ -32,9 +32,9 @@ class MGN(nn.Module):
     def output_normalize_inverse(self, data):
         return self.output_normalizer.inverse(data)
 
-    def forward(self, senders, receivers, node_features, edge_features, adj_list):
+    def forward(self, senders, receivers, node_features, edge_features):
         node_features = self.node_normalizer(node_features)
         edge_features = self.edge_normalizer(edge_features)
-        prediction = self.epd_component(senders, receivers, node_features, edge_features, adj_list)
+        prediction = self.epd_component(senders, receivers, node_features, edge_features)
         return prediction
 

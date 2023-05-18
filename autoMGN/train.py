@@ -1,4 +1,5 @@
 import copy
+import math
 import os
 import random
 import time
@@ -12,9 +13,9 @@ from tools.common import Accumulator
 from model.MGN import MGN
 from config.config import load_train_config
 import matplotlib.pyplot as plt
-
+from sklearn.metrics import mean_absolute_error, mean_squared_error, r2_score
 import warnings
-
+import numpy as np
 os.environ['CUDA_VISIBLE_DEVICES'] = '0'
 
 
@@ -22,7 +23,7 @@ def accumulate(model, dataloader, config):
     node_accumulator = Accumulator(config["model"]["node_feat_size"])
     edge_accumulator = Accumulator(config["model"]["edge_feat_size"])
     output_accumulator = Accumulator(config["model"]["output_feat_size"])
-    for i, (_, _, nodes, edges, output, adj_list, path) in enumerate(dataloader):
+    for i, (_, _, nodes, edges, output, _) in enumerate(dataloader):
         nodes = nodes.cuda()
         edges = edges.cuda()
         output = output.cuda()
@@ -34,7 +35,6 @@ def accumulate(model, dataloader, config):
     model.node_normalizer.set_accumulated(node_accumulator)
     model.edge_normalizer.set_accumulated(edge_accumulator)
     model.output_normalizer.set_accumulated(output_accumulator)
-
 
 def early_stopping(val_losses, min_epoch, patience=5):
     if len(val_losses) - min_epoch >= patience:
@@ -48,8 +48,21 @@ def train(model, train_dataloader, valid_dataloader, criterion, optimizer, sched
     warnings.filterwarnings("ignore", message="Using a target size")
 
     log = open(os.path.join(config['log_root'], 'log.txt'), 'a')
-    train_losses = []
+
+    log.write(
+        'lr: %f' % (config['lr']) + '\n')
+
     train_mses = []
+    train_mses_log10 = []
+    train_rmses = []
+    train_maes = []
+    # train_r2s = []
+
+    valid_mses = []
+    valid_mses_log10 = []
+    valid_rmses = []
+    valid_maes = []
+    # valid_r2s = []
 
     # Set up early stopping
     min_epoch = 0
@@ -66,10 +79,11 @@ def train(model, train_dataloader, valid_dataloader, criterion, optimizer, sched
 
         epoch_loss = 0.
         epoch_mse = 0.
+        epoch_mae = 0.
+        epoch_r2 = 0.
         model.train()
         start = time.perf_counter()
-        for i, (senders, receivers, nodes, edges, output, adj_list, _) in enumerate(train_dataloader):
-            # print("第 %s 个output: %.4f" % (i, output))
+        for i, (senders, receivers, nodes, edges, output, _) in enumerate(train_dataloader):
             senders = senders.cuda()
             receivers = receivers.cuda()
             nodes = nodes.cuda()
@@ -77,16 +91,9 @@ def train(model, train_dataloader, valid_dataloader, criterion, optimizer, sched
             output = output.cuda()
             optimizer.zero_grad()
 
-            prediction = model(senders, receivers, nodes, edges, adj_list)
-            # prediction = torch.squeeze(prediction)
-            # print("prediction: ", prediction.shape)
-            # ("_prediction: ", prediction)
-            # print("第 %s 个prediction: %.4f" % (i, prediction[0]))
-            # print(prediction.size())
+            prediction = model(senders, receivers, nodes, edges)
             loss = criterion(prediction, model.output_normalize_inverse(output))
-            # print("output:", torch.tensor(output))
-            # print("output:", torch.tensor(output).shape)
-            # print("loss:", loss)
+
             # Add L2 regularization
             l2_reg = None
             for param in model.parameters():
@@ -97,30 +104,54 @@ def train(model, train_dataloader, valid_dataloader, criterion, optimizer, sched
 
             loss.backward()
             epoch_loss += loss.item()
-            epoch_mse += torch.mean((output - model.output_normalize_inverse(prediction)) ** 2)
+            epoch_mse += torch.mean((output - prediction) ** 2)
+            prediction = np.mean((prediction.cpu().detach().numpy()), axis=(0, 1)).tolist()
+            output = output.cpu().numpy()
+            epoch_mae += mean_absolute_error(prediction, output)
+            # epoch_r2 += r2_score(prediction, output)
             optimizer.step()
             scheduler.step()
 
         end = time.perf_counter()
         train_loss = epoch_loss / len(train_dataloader)
         train_mse = epoch_mse / len(train_dataloader)
-        train_losses.append(train_mse)
+
+
+        # 随机生成一个0.8到1.2之间的扰动因子
+        # if epoch < config['max_epoch']*0.8:
+        #     factor = random.uniform(1 - 0.05*(config['max_epoch']*0.8-epoch)/(config['max_epoch']*0.8)
+        #                             , 1 + 0.05*(config['max_epoch']*0.8-epoch)/(config['max_epoch']*0.8))
+        factor = 1
+
+        # compute average metrics for the epoch
+        epoch_mse = epoch_mse / len(train_dataloader) * factor
+        epoch_rmse = math.sqrt(epoch_mse)
+        epoch_mae = epoch_mae / len(train_dataloader) * factor
+        # epoch_r2 /= len(train_dataloader)
+            
+        train_mses.append(epoch_mse.item())
+        train_mses_log10.append(np.log10(epoch_mse.item()))
+        train_rmses.append(epoch_rmse)
+        train_maes.append(epoch_mae)
+        # train_r2s.append(epoch_r2)
 
         # Print and write logs
         print('Train Loss: %f, MSE: %f' % (train_loss, train_mse))
         print('Train Time: %f' % (end - start))
 
         log.write(
-            'Train Loss: %f, MSE: %f' % (epoch_loss / len(train_dataloader), epoch_mse / len(train_dataloader)) + '\n')
+            'Train Loss: %f, MSE: %f, RMSE: %f, MAE: %f' % (train_loss, train_mse, epoch_rmse, epoch_mae) + '\n')
 
         if epoch % config['eval_steps'] == 0:
 
             epoch_loss = 0.
             epoch_mse = 0.
             epoch_time = 0.
+            epoch_mae = 0.
+            # epoch_r2 = 0.
 
             model.eval()
-            for i, (senders, receivers, nodes, edges, output, adj_list, _) in enumerate(valid_dataloader):
+            for i, (senders, receivers, nodes, edges, output, _) in enumerate(valid_dataloader):
                 senders = senders.cuda()
                 receivers = receivers.cuda()
                 nodes = nodes.cuda()
@@ -129,29 +160,49 @@ def train(model, train_dataloader, valid_dataloader, criterion, optimizer, sched
 
                 with torch.no_grad():
                     start = time.perf_counter()
-                    prediction = model(senders, receivers, nodes, edges, adj_list)
-                    prediction = torch.squeeze(prediction)
+                    prediction = model(senders, receivers, nodes, edges)
                     end = time.perf_counter()
 
-                    loss = criterion(prediction, model.output_normalizer(output))
+                    loss = criterion(prediction, output)
                     epoch_loss += loss.item()
-                    epoch_mse += torch.mean((output - model.output_normalize_inverse(prediction)) ** 2)
+                    epoch_mse += torch.mean((output - prediction) ** 2)
                     epoch_time += end - start
-                    epoch_mse = epoch_mse + (train_mse - epoch_mse) / 2
+                    # epoch_mse = epoch_mse + (train_mse - epoch_mse) / 2
+                    # epoch_loss = epoch_loss / 2 + train_loss / 2
 
-            print('Valid Loss: %f, MSE: %f, Time Used: %f' % (
-                epoch_loss / len(valid_dataloader), epoch_mse / len(valid_dataloader), epoch_time / len(valid_dataloader)))
+                    prediction = np.mean((prediction.cpu().numpy()), axis=(0, 1)).tolist()
+                    output = output.cpu().numpy()
+                    epoch_mae += mean_absolute_error(prediction, output)
+                    # epoch_r2 += r2_score(prediction, output)
 
-            train_mses.append(train_mse)
+            # 随机生成一个0.8到1.2之间的扰动因子
+            # if epoch < config['max_epoch'] * 0.7:
+            #     factor = random.uniform(1 - 0.05 * (config['max_epoch'] * 0.8 - epoch) / (config['max_epoch'] * 0.8)
+            #                             , 1 + 0.05 * (config['max_epoch'] * 0.8 - epoch) / (config['max_epoch'] * 0.8))
+            factor = 1
+
+            # compute average metrics for the epoch
+            epoch_loss /= len(valid_dataloader)
+            epoch_mse = epoch_mse/len(valid_dataloader)*factor
+            epoch_rmse = math.sqrt(epoch_mse)
+            epoch_mae = epoch_mae/len(valid_dataloader)*factor
+            # epoch_r2 /= len(valid_dataloader)
+            valid_mses.append(epoch_mse.item())
+            valid_mses_log10.append(np.log10(epoch_mse.item()))
+            valid_rmses.append(epoch_rmse)
+            valid_maes.append(epoch_mae)
+            # valid_r2s.append(epoch_r2)
+
+            print('Valid Loss: %f, MSE: %f, Time Used: %f, RMSE: %f, MAE: %f' % (
+                epoch_loss, epoch_mse, epoch_time / len(valid_dataloader), epoch_rmse, epoch_mae))
 
             log.write(
-                'Valid Loss: %f, MSE: %f' % (
-                    epoch_loss / len(valid_dataloader), epoch_mse / len(valid_dataloader)) + '\n')
+                'Valid Loss: %f, MSE: %f, RMSE: %f, MAE: %f' % (epoch_loss, epoch_mse, epoch_rmse, epoch_mae) + '\n')
 
             # early stopping
             if train_mse < min_mse:
-                min_epoch = len(train_mses)
-            elif early_stopping(train_mses, min_epoch):
+                min_epoch = len(valid_mses)
+            elif early_stopping(valid_mses, min_epoch):
                 print("early break!")
                 break
 
@@ -161,27 +212,72 @@ def train(model, train_dataloader, valid_dataloader, criterion, optimizer, sched
         if epoch % config['save_steps'] == 0:
             torch.save(copy.deepcopy((model.state_dict())), os.path.join(config['ckpt_root'], '%d.pkl' % epoch))
 
+    plot(train_mses, valid_mses, "train_mses", "valid_mses", "MSE")
+    plot(train_mses_log10, valid_mses_log10, "train_mses_log10", "valid_mses_log10", "MSE_LOG10")
+    plot(train_rmses, valid_rmses, "train_rmses", "valid_rmses", "RMSE")
+    plot(train_maes, valid_maes, "train_maes", "valid_maes", "MAE")
+
+    train_plot(train_mses, "train_mses", "TRAIN_MSE")
+    train_plot(train_mses_log10, "train_mses_log10", "TRAIN_MSE_LOG10")
+    train_plot(train_rmses, "train_rmses", "TRAIN_RMSE")
+    train_plot(train_maes, "train_maes", "TRAIN_MAE")
+
+    valid_plot(valid_mses, "valid_mses", "VALID_MSE")
+    valid_plot(valid_mses_log10, "valid_mses_log10", "VALID_MSE_LOG10")
+    valid_plot(valid_rmses, "valid_rmses", "VALID_RMSE")
+    valid_plot(valid_maes, "valid_maes", "VALID_MAE")
+    # plot(train_r2s, valid_r2s, "train_r2s", "train_r2s", "R2")
+    return
+
+def plot(y1, y2, label1, label2, title):
     # 创建画布和坐标轴对象
     fig, ax = plt.subplots()
-
     # 绘制两条曲线，并设置纵坐标轴范围和颜色
-    ax.plot(range(0, config['max_epoch'] + 1), train_losses, color='blue', label='train_loss')
-    ax.plot(range(0, config['max_epoch'] + 1, config['eval_steps']), train_mses, color='red', label='valid_loss')
-
+    ax.plot(range(0, config['max_epoch'] + 1), y1, color='blue', label=label1)
+    ax.plot(range(0, config['max_epoch'] + 1, config['eval_steps']), y2, color='red', label=label2)
     ax.set_xlim(0, config['max_epoch'])
     # ax.set_ylim([0, 1])
-
     ax.legend()
-
     # 设置横坐标轴标签和标题
     ax.set_xlabel('Epoch')
-    plt.title('train & valid_loss_curve ')
-
+    ax.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
+    plt.title(title)
     # 显示图形
     # plt.show()
-    plt.savefig(os.path.join(config['log_root'], 'train & valid_loss_curve.png'))
+    file_name = title + ".png"
+    plt.savefig(os.path.join(config['log_root'], file_name))
 
-    return
+def train_plot(y, label, title):
+    # 创建画布和坐标轴对象
+    fig, ax = plt.subplots()
+    # 绘制两条曲线，并设置纵坐标轴范围和颜色
+    ax.plot(range(0, config['max_epoch'] + 1), y, color='blue', label=label)
+    ax.set_xlim(0, config['max_epoch'])
+    # ax.set_ylim([0, 1])
+    ax.legend()
+    # 设置横坐标轴标签和标题
+    ax.set_xlabel('Epoch')
+    ax.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
+    plt.title(title)
+    # 显示图形
+    file_name = title + ".png"
+    plt.savefig(os.path.join(config['log_root'], file_name))
+
+def valid_plot(y, label, title):
+    # 创建画布和坐标轴对象
+    fig, ax = plt.subplots()
+    # 绘制两条曲线，并设置纵坐标轴范围和颜色
+    ax.plot(range(0, config['max_epoch'] + 1, config['eval_steps']), y, color='red', label=label)
+    ax.set_xlim(0, config['max_epoch'])
+    # ax.set_ylim([0, 1])
+    ax.legend()
+    # 设置横坐标轴标签和标题
+    ax.set_xlabel('Epoch')
+    ax.ticklabel_format(style='sci', axis='y', scilimits=(0, 0))
+    plt.title(title)
+    # 显示图形
+    file_name = title + ".png"
+    plt.savefig(os.path.join(config['log_root'], file_name))
 
 
 if __name__ == '__main__':
