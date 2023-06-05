@@ -1,0 +1,697 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="462047bc-984d-4e8e-90b6-b8820d0eaaac" name="Changes" comment="ww">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/autoMGN.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/other.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/.idea/autoMGN.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/.idea/checkstyle-idea.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/.idea/inspectionProfiles/profiles_settings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/.idea/other.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/.ipynb_checkpoints/Untitled1-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/Readme.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/Untitled1.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/config/config.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/config/test.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/config/train.yaml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model001.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model002.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model003.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model004.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model005.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model006.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model008.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model009.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model010.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model011.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model012.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model014.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model015.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model016.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model017.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model018.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model019.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model020.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model021.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model022.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model024.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model026.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model027.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model028.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model031.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model032.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model034.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model035.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model036.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model038.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model039.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model040.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model041.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model042.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model043.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model045.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model046.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model048.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model049.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model050.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model051.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model052.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model053.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model054.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model055.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model056.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model057.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model058.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model059.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model061.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model062.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model063.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model064.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model066.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model067.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model068.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model069.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model071.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model072.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model073.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model074.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model075.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model076.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model078.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model079.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model080.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model081.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model082.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model083.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model084.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model085.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model086.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model087.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model088.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model089.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model090.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model091.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model092.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model093.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model094.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model095.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model096.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model097.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model098.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model099.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model100.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model101.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model102.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model104.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model105.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model106.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model107.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model109.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model110.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model111.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model112.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model113.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model114.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model115.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model116.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model117.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model118.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model119.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model120.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model121.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model122.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model123.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model124.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model125.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model126.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model127.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model128.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model129.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model130.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model131.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model132.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model134.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model135.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model136.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model137.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model138.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model139.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model140.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model142.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model145.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model146.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model147.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model148.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model149.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model150.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model151.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model152.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model153.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model154.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model155.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model156.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model157.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model158.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model160.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model161.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model162.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model163.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model164.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model165.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model166.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model167.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model168.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model169.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model170.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model171.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model172.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model173.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model174.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model175.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model178.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model180.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model182.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model183.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model184.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model186.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model187.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model188.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model189.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model190.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model191.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model193.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model194.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model196.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model197.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model198.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model199.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model200.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model201.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model202.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model203.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model204.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model205.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model206.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model208.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model209.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model210.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model211.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model212.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model213.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model214.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model215.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model216.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model217.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model218.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model219.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model220.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model221.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model222.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model223.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model224.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model225.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model226.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model227.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model228.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/Model230.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model001_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model002_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model003_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model004_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model005_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model006_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model008_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model009_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model010_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model011_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model012_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model014_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model015_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model016_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model017_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model018_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model019_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model020_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model021_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model022_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model024_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model026_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model027_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model028_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model031_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model032_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model034_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model035_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model036_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model038_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model039_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model040_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model041_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model042_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model043_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model045_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model046_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model048_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model049_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model050_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model051_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model052_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model053_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model054_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model055_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model056_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model057_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model058_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model059_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model061_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model062_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model063_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model064_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model066_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model067_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model068_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model069_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model071_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model072_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model073_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model074_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model075_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model076_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model078_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model079_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model080_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model081_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model082_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model083_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model084_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model085_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model086_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model087_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model088_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model089_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model090_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model091_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model092_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model093_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model094_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model095_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model096_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model097_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model098_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model099_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model100_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model101_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model102_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model104_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model105_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model106_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model107_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model109_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model110_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model111_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model112_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model113_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model114_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model115_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model116_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model117_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model118_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model119_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model120_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model121_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model122_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model123_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model124_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model125_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model126_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model127_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model128_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model129_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model130_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model131_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model132_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model134_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model135_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model136_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model137_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model138_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model139_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model140_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model142_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model145_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model146_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model147_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model148_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model149_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model150_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model151_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model152_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model153_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model154_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model155_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model156_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model157_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model158_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model160_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model161_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model162_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model163_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model164_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model165_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model166_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model167_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model168_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model169_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model170_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model171_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model172_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model173_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model174_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model175_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model178_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model180_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model182_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model183_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model184_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model186_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model187_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model188_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model189_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model190_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model191_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model193_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model194_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model196_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model197_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model198_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model199_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model200_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model201_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model202_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model203_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model204_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model205_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model206_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model208_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model209_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model210_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model211_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model212_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model213_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model214_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model215_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model216_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model217_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model218_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model219_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model220_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model221_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model222_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model223_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model224_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model225_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model226_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model227_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model228_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/CarModel/test/Model230_test.npz" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/DOE List.xlsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/_process.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/data/cd.npy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/log/train &amp; valid_loss_curve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/log/train_loss_curve.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/model/MGN.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/model/components.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/tools/common.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/tools/dataset.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/tools/dataset2.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/tools/how2loadData.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/tools/step2npy.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/autoMGN/train.py" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FlaskConsoleOptions" custom-start-script="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))">
+    <envs>
+      <env key="FLASK_APP" value="app" />
+    </envs>
+    <option name="myCustomStartScript" value="import sys&#10;sys.path.extend([WORKING_DIR_AND_PYTHON_PATHS])&#10;from flask.cli import ScriptInfo&#10;locals().update(ScriptInfo(create_app=None).load_app().make_shell_context())&#10;print(&quot;Python %s on %s\nApp: %s [%s]\nInstance: %s&quot; % (sys.version, sys.platform, app.import_name, app.env, app.instance_path))" />
+    <option name="myEnvs">
+      <map>
+        <entry key="FLASK_APP" value="app" />
+      </map>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2O8ijUYoI7JmDt3d5DiEHKRPHzY" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/86187/Desktop/graduate/autoMGN/autoMGN/data&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.group.editor&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\86187\Desktop\graduate\autoMGN\autoMGN\data" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\86187\Desktop\graduate\autoMGN\autoMGN\log\Mesh 16 2 4 0.000001" />
+      <recent name="C:\Users\86187\Desktop\graduate\autoMGN\autoMGN\log\Mesh 32 2 4" />
+      <recent name="C:\Users\86187\Desktop\graduate\autoMGN\autoMGN\log\Mesh" />
+      <recent name="C:\Users\86187\Desktop\graduate\autoMGN\autoMGN\log\Mesh标准" />
+      <recent name="C:\Users\86187\Desktop\graduate\autoMGN\autoMGN\log\过拟合" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Python.train">
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <module name="MGN" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="common" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="MGN" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/autoMGN/tools" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/autoMGN/tools/common.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration name="train" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
+      <module name="MGN" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\86187\.conda\envs\mesh\python.exe" />
+      <option name="SDK_NAME" value="mesh" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/autoMGN" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/autoMGN/train.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Python.common" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="462047bc-984d-4e8e-90b6-b8820d0eaaac" name="Changes" comment="" />
+      <created>1680948745625</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1680948745625</updated>
+      <workItem from="1680948747748" duration="796000" />
+      <workItem from="1680949575772" duration="2478000" />
+      <workItem from="1680952486399" duration="3213000" />
+      <workItem from="1681009413666" duration="1427000" />
+      <workItem from="1681013859013" duration="712000" />
+      <workItem from="1681014783888" duration="2515000" />
+      <workItem from="1681022995301" duration="3071000" />
+      <workItem from="1681026305477" duration="3676000" />
+      <workItem from="1681030029150" duration="837000" />
+      <workItem from="1681034027117" duration="35000" />
+      <workItem from="1681034079236" duration="628000" />
+      <workItem from="1681034760903" duration="324000" />
+      <workItem from="1681035502006" duration="10000" />
+      <workItem from="1681035535818" duration="666000" />
+      <workItem from="1681036227611" duration="295000" />
+      <workItem from="1681036549409" duration="459000" />
+      <workItem from="1681037533765" duration="174000" />
+      <workItem from="1681038645484" duration="100000" />
+      <workItem from="1681038932624" duration="672000" />
+      <workItem from="1681039645613" duration="596000" />
+      <workItem from="1681040257884" duration="22007000" />
+      <workItem from="1681218723508" duration="1724000" />
+      <workItem from="1681222067520" duration="4641000" />
+      <workItem from="1681265783205" duration="6378000" />
+      <workItem from="1681453862609" duration="7048000" />
+      <workItem from="1683623271292" duration="10674000" />
+      <workItem from="1683695569970" duration="8042000" />
+      <workItem from="1683717738436" duration="9839000" />
+      <workItem from="1683778336983" duration="1977000" />
+      <workItem from="1683781397426" duration="9627000" />
+      <workItem from="1683803579176" duration="182000" />
+      <workItem from="1683803869976" duration="359000" />
+      <workItem from="1683804307315" duration="14532000" />
+      <workItem from="1683860821495" duration="92000" />
+      <workItem from="1683861105124" duration="2192000" />
+      <workItem from="1683864222069" duration="167000" />
+      <workItem from="1683864403238" duration="113000" />
+      <workItem from="1683864652973" duration="12014000" />
+      <workItem from="1683887450883" duration="975000" />
+      <workItem from="1683888502646" duration="3836000" />
+      <workItem from="1683892479454" duration="2193000" />
+      <workItem from="1683895025161" duration="1969000" />
+      <workItem from="1683900723780" duration="16633000" />
+      <workItem from="1683977459417" duration="27174000" />
+      <workItem from="1684115437176" duration="1414000" />
+      <workItem from="1684120008098" duration="5451000" />
+      <workItem from="1684210418750" duration="4321000" />
+      <workItem from="1685975743621" duration="103000" />
+    </task>
+    <task id="LOCAL-00001" summary="ww">
+      <created>1681036982282</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1681036982282</updated>
+    </task>
+    <task id="LOCAL-00002" summary="ww">
+      <created>1681037004630</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1681037004630</updated>
+    </task>
+    <task id="LOCAL-00003" summary="ww">
+      <created>1681224214000</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1681224214000</updated>
+    </task>
+    <task id="LOCAL-00004" summary="ww">
+      <created>1683804957749</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1683804957749</updated>
+    </task>
+    <task id="LOCAL-00005" summary="ww">
+      <created>1683864800990</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1683864800990</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="ww" />
+    <option name="LAST_COMMIT_MESSAGE" value="ww" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/autoMGN$train.coverage" NAME="train Coverage Results" MODIFIED="1684144823396" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/autoMGN" />
+  </component>
+</project>
